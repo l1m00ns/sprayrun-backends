@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: reverse-surfers-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      - key: TRUST_PROXY
+        value: "1"
+      - key: CORS_ORIGIN # the address of your front-end, e.g. https://my-game.vercel.app (empty = any site)
+        sync: false
+      - key: ADMIN_KEY
+        generateValue: true
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: TOKENHARBOR_API_KEY
+        sync: false
+      # DATA_DIR: add a persistent disk (paid plans) mounted at /var/data and set DATA_DIR=/var/data, otherwise the
+      # database lives on the instance's ephemeral disk and is reset on every deploy.
