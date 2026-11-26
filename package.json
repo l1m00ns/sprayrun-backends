@@ -1,6 +1,6 @@
 {
   "name": "sprayrun-backends",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
   "description": "Reverse Surfers backend: accounts, economy, ranked, duels, anti-cheat, AI review",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node server.mjs",
-    "test": "node tools/backend.mjs && node tools/duel-net.mjs"
+    "test": "node tools/backend.mjs && node tools/duel-net.mjs && node tools/social.mjs && node tools/analytics.mjs && node tools/tournaments.mjs"
   },
   "dependencies": {
     "ws": "^8.23.0"
